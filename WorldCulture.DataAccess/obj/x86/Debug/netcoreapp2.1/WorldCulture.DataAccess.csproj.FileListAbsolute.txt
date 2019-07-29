@@ -1,0 +1,16 @@
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\bin\x86\Debug\netcoreapp2.1\WorldCulture.DataAccess.deps.json
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\bin\x86\Debug\netcoreapp2.1\WorldCulture.DataAccess.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\bin\x86\Debug\netcoreapp2.1\WorldCulture.DataAccess.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\bin\x86\Debug\netcoreapp2.1\WorldCulture.Entities.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\bin\x86\Debug\netcoreapp2.1\WorldCulture.Entities.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\obj\x86\Debug\netcoreapp2.1\WorldCulture.DataAccess.csprojAssemblyReference.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\obj\x86\Debug\netcoreapp2.1\WorldCulture.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\obj\x86\Debug\netcoreapp2.1\WorldCulture.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\obj\x86\Debug\netcoreapp2.1\WorldCulture.DataAccess.AssemblyInfo.cs
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\obj\x86\Debug\netcoreapp2.1\WorldCulture.DataAccess.csproj.CopyComplete
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\obj\x86\Debug\netcoreapp2.1\WorldCulture.DataAccess.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\obj\x86\Debug\netcoreapp2.1\WorldCulture.DataAccess.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\bin\x86\Debug\netcoreapp2.1\WorldCulture.DataAccess.runtimeconfig.json
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\bin\x86\Debug\netcoreapp2.1\WorldCulture.DataAccess.runtimeconfig.dev.json
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\bin\x86\Debug\netcoreapp2.1\WorldCulture.Api.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\bin\x86\Debug\netcoreapp2.1\WorldCulture.Api.pdb

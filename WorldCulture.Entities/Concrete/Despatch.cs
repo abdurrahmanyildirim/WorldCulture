@@ -19,8 +19,9 @@ namespace WorldCulture.Entities.Concrete
         public string Description { get; set; }
         public DateTime CreatedDate { get; set; }
         public byte Rate { get; set; }
+        public string CountOfView { get; set; }
 
-        public FamousPlace FamousPlace { get; set; }
-        public List<Review> Reviews { get; set; }
+        public virtual FamousPlace FamousPlace { get; set; }
+        public virtual List<Review> Reviews { get; set; }
     }
 }

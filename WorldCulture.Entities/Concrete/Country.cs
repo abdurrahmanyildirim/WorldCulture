@@ -23,6 +23,6 @@ namespace WorldCulture.Entities.Concrete
         public string Language { get; set; }
         public DateTime FoundedDate { get; set; }
 
-        public List<City> Cities { get; set; }
+        public virtual List<City> Cities { get; set; }
     }
 }

@@ -13,6 +13,6 @@ namespace WorldCulture.Entities.Concrete
         public byte Rate { get; set; }
         public DateTime ReviewDate { get; set; }
 
-        public Despatch Despatch { get; set; }
+        public virtual Despatch Despatch { get; set; }
     }
 }

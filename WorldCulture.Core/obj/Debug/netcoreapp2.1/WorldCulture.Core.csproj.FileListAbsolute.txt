@@ -1,0 +1,12 @@
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Core\bin\Debug\netcoreapp2.1\WorldCulture.Core.deps.json
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Core\bin\Debug\netcoreapp2.1\WorldCulture.Core.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Core\bin\Debug\netcoreapp2.1\WorldCulture.Core.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Core\obj\Debug\netcoreapp2.1\WorldCulture.Core.csprojAssemblyReference.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Core\obj\Debug\netcoreapp2.1\WorldCulture.Core.csproj.CoreCompileInputs.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Core\obj\Debug\netcoreapp2.1\WorldCulture.Core.AssemblyInfoInputs.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Core\obj\Debug\netcoreapp2.1\WorldCulture.Core.AssemblyInfo.cs
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Core\obj\Debug\netcoreapp2.1\WorldCulture.Core.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Core\obj\Debug\netcoreapp2.1\WorldCulture.Core.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Core\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Core\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.xml
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Core\obj\Debug\netcoreapp2.1\WorldCulture.Core.csproj.CopyComplete

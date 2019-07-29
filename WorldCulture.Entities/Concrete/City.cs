@@ -18,7 +18,7 @@ namespace WorldCulture.Entities.Concrete
         public string Description { get; set; }
         public string CityPhotoPath { get; set; }
 
-        public Country Country { get; set; }
-        public List<FamousPlace> FamousPlaces { get; set; }
+        public virtual Country Country { get; set; }
+        public virtual List<FamousPlace> FamousPlaces { get; set; }
     }
 }

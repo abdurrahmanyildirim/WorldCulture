@@ -1,0 +1,9 @@
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Business\bin\x86\Debug\netcoreapp2.1\WorldCulture.Business.deps.json
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Business\bin\x86\Debug\netcoreapp2.1\WorldCulture.Business.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Business\bin\x86\Debug\netcoreapp2.1\WorldCulture.Business.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Business\obj\x86\Debug\netcoreapp2.1\WorldCulture.Business.csprojAssemblyReference.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Business\obj\x86\Debug\netcoreapp2.1\WorldCulture.Business.csproj.CoreCompileInputs.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Business\obj\x86\Debug\netcoreapp2.1\WorldCulture.Business.AssemblyInfoInputs.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Business\obj\x86\Debug\netcoreapp2.1\WorldCulture.Business.AssemblyInfo.cs
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Business\obj\x86\Debug\netcoreapp2.1\WorldCulture.Business.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Business\obj\x86\Debug\netcoreapp2.1\WorldCulture.Business.pdb

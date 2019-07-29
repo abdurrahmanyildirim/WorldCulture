@@ -14,6 +14,6 @@ namespace WorldCulture.Entities.Concrete
         public int RoleID { get; set; }
         public string RoleName { get; set; }
 
-        public List<Account> Account { get; set; }
+        public virtual List<Account> Account { get; set; }
     }
 }

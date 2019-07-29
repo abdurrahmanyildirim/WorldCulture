@@ -1,0 +1,14 @@
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\bin\Debug\netcoreapp2.1\WorldCulture.Api.deps.json
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\bin\Debug\netcoreapp2.1\WorldCulture.Api.runtimeconfig.json
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\bin\Debug\netcoreapp2.1\WorldCulture.Api.runtimeconfig.dev.json
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\bin\Debug\netcoreapp2.1\WorldCulture.Api.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\bin\Debug\netcoreapp2.1\WorldCulture.Api.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\obj\Debug\netcoreapp2.1\WorldCulture.Api.csprojAssemblyReference.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\obj\Debug\netcoreapp2.1\WorldCulture.Api.csproj.CoreCompileInputs.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\obj\Debug\netcoreapp2.1\WorldCulture.Api.RazorAssemblyInfo.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\obj\Debug\netcoreapp2.1\WorldCulture.Api.RazorAssemblyInfo.cs
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\obj\Debug\netcoreapp2.1\WorldCulture.Api.AssemblyInfoInputs.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\obj\Debug\netcoreapp2.1\WorldCulture.Api.AssemblyInfo.cs
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\obj\Debug\netcoreapp2.1\WorldCulture.Api.RazorTargetAssemblyInfo.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\obj\Debug\netcoreapp2.1\WorldCulture.Api.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\obj\Debug\netcoreapp2.1\WorldCulture.Api.pdb
