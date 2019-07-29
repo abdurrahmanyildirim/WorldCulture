@@ -5,4 +5,8 @@
     <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WorldCulture.DataAccess\WorldCulture.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

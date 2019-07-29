@@ -12,3 +12,5 @@ C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\
 C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\obj\Debug\netcoreapp2.1\WorldCulture.DataAccess.pdb
 C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\bin\Debug\netcoreapp2.1\WorldCulture.DataAccess.runtimeconfig.json
 C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\bin\Debug\netcoreapp2.1\WorldCulture.DataAccess.runtimeconfig.dev.json
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\bin\Debug\netcoreapp2.1\WorldCulture.Core.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.DataAccess\bin\Debug\netcoreapp2.1\WorldCulture.Core.pdb

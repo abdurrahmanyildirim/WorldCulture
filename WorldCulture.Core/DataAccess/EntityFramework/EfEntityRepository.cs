@@ -58,7 +58,7 @@ namespace WorldCulture.Core.DataAccess.EntityFramework
             }
         }
 
-        public void DbSave(TContext context)
+        private void DbSave(TContext context)
         {
             try
             {

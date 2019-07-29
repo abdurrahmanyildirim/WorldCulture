@@ -14,4 +14,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WorldCulture.Business\WorldCulture.Business.csproj" />
+    <ProjectReference Include="..\WorldCulture.Core\WorldCulture.Core.csproj" />
+    <ProjectReference Include="..\WorldCulture.DataAccess\WorldCulture.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

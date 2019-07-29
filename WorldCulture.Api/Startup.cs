@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WorldCulture.DataAccess.Abstract;
+using WorldCulture.DataAccess.Concrete.EntityFramework;
 
 namespace WorldCulture.Api
 {
@@ -26,6 +28,9 @@ namespace WorldCulture.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //Dependencies
+            services.AddSingleton<IAccountDal, EfAccountDal>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

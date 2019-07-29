@@ -12,3 +12,12 @@ C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\obj\Deb
 C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\obj\Debug\netcoreapp2.1\WorldCulture.Api.RazorTargetAssemblyInfo.cache
 C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\obj\Debug\netcoreapp2.1\WorldCulture.Api.dll
 C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\obj\Debug\netcoreapp2.1\WorldCulture.Api.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\bin\Debug\netcoreapp2.1\WorldCulture.Business.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\bin\Debug\netcoreapp2.1\WorldCulture.Core.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\bin\Debug\netcoreapp2.1\WorldCulture.DataAccess.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\bin\Debug\netcoreapp2.1\WorldCulture.Entities.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\bin\Debug\netcoreapp2.1\WorldCulture.Business.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\bin\Debug\netcoreapp2.1\WorldCulture.Core.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\bin\Debug\netcoreapp2.1\WorldCulture.DataAccess.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\bin\Debug\netcoreapp2.1\WorldCulture.Entities.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Api\obj\Debug\netcoreapp2.1\WorldCulture.Api.csproj.CopyComplete
