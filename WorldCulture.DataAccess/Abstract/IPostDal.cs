@@ -6,7 +6,7 @@ using WorldCulture.Entities.Concrete;
 
 namespace WorldCulture.DataAccess.Abstract
 {
-    public interface IDespatchDal : IEntityRepository<Despatch>
+    public interface IPostDal : IEntityRepository<Post>
     {
     }
 }

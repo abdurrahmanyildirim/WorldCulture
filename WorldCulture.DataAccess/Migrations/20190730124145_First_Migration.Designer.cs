@@ -10,14 +10,14 @@ using WorldCulture.DataAccess.Concrete.EntityFramework.Context;
 namespace WorldCulture.DataAccess.Migrations
 {
     [DbContext(typeof(EfContext))]
-    [Migration("20190729092710_First_Migration")]
+    [Migration("20190730124145_First_Migration")]
     partial class First_Migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
+                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -151,42 +151,6 @@ namespace WorldCulture.DataAccess.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("WorldCulture.Entities.Concrete.Despatch", b =>
-                {
-                    b.Property<int>("DespatchID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AccountID");
-
-                    b.Property<string>("CountOfView");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired();
-
-                    b.Property<string>("DespatchPhotoPath")
-                        .IsRequired();
-
-                    b.Property<int>("FamousPlaceID");
-
-                    b.Property<byte>("Rate");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(30);
-
-                    b.HasKey("DespatchID");
-
-                    b.HasIndex("AccountID");
-
-                    b.HasIndex("FamousPlaceID");
-
-                    b.ToTable("Despatches");
-                });
-
             modelBuilder.Entity("WorldCulture.Entities.Concrete.FamousPlace", b =>
                 {
                     b.Property<int>("FamousPlaceID")
@@ -212,6 +176,42 @@ namespace WorldCulture.DataAccess.Migrations
                     b.HasIndex("CityID");
 
                     b.ToTable("FamousPlaces");
+                });
+
+            modelBuilder.Entity("WorldCulture.Entities.Concrete.Post", b =>
+                {
+                    b.Property<int>("PostID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AccountID");
+
+                    b.Property<string>("CountOfView");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired();
+
+                    b.Property<int>("FamousPlaceID");
+
+                    b.Property<string>("PostPhotoPath")
+                        .IsRequired();
+
+                    b.Property<byte>("Rate");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(30);
+
+                    b.HasKey("PostID");
+
+                    b.HasIndex("AccountID");
+
+                    b.HasIndex("FamousPlaceID");
+
+                    b.ToTable("Posts");
                 });
 
             modelBuilder.Entity("WorldCulture.Entities.Concrete.Relation", b =>
@@ -242,11 +242,11 @@ namespace WorldCulture.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("DespatchID");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30);
+
+                    b.Property<int>("PostID");
 
                     b.Property<byte>("Rate");
 
@@ -258,7 +258,7 @@ namespace WorldCulture.DataAccess.Migrations
 
                     b.HasKey("ReviewID");
 
-                    b.HasIndex("DespatchID");
+                    b.HasIndex("PostID");
 
                     b.ToTable("Reviews");
                 });
@@ -294,24 +294,24 @@ namespace WorldCulture.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("WorldCulture.Entities.Concrete.Despatch", b =>
-                {
-                    b.HasOne("WorldCulture.Entities.Concrete.Account")
-                        .WithMany("Despatches")
-                        .HasForeignKey("AccountID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("WorldCulture.Entities.Concrete.FamousPlace", "FamousPlace")
-                        .WithMany("Despatches")
-                        .HasForeignKey("FamousPlaceID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("WorldCulture.Entities.Concrete.FamousPlace", b =>
                 {
                     b.HasOne("WorldCulture.Entities.Concrete.City", "City")
                         .WithMany("FamousPlaces")
                         .HasForeignKey("CityID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("WorldCulture.Entities.Concrete.Post", b =>
+                {
+                    b.HasOne("WorldCulture.Entities.Concrete.Account")
+                        .WithMany("Posts")
+                        .HasForeignKey("AccountID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("WorldCulture.Entities.Concrete.FamousPlace", "FamousPlace")
+                        .WithMany("Posts")
+                        .HasForeignKey("FamousPlaceID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -329,9 +329,9 @@ namespace WorldCulture.DataAccess.Migrations
 
             modelBuilder.Entity("WorldCulture.Entities.Concrete.Review", b =>
                 {
-                    b.HasOne("WorldCulture.Entities.Concrete.Despatch", "Despatch")
+                    b.HasOne("WorldCulture.Entities.Concrete.Post", "Post")
                         .WithMany("Reviews")
-                        .HasForeignKey("DespatchID")
+                        .HasForeignKey("PostID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

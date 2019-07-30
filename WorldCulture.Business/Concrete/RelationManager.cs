@@ -6,11 +6,11 @@ using WorldCulture.DataAccess.Abstract;
 
 namespace WorldCulture.Business.Concrete
 {
-    public class RelationManger : IRelationService
+    public class RelationManager : IRelationService
     {
         private IRelationDal _relationDal;
 
-        public RelationManger(IRelationDal relationDal)
+        public RelationManager(IRelationDal relationDal)
         {
             _relationDal = relationDal;
         }

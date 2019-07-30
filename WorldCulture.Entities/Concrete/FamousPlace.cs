@@ -8,7 +8,7 @@ namespace WorldCulture.Entities.Concrete
     {
         public FamousPlace()
         {
-            Despatches = new List<Despatch>();
+            Posts = new List<Post>();
         }
 
         public int FamousPlaceID { get; set; }
@@ -19,6 +19,6 @@ namespace WorldCulture.Entities.Concrete
         public bool IsActive { get; set; }
 
         public virtual City City { get; set; }
-        public virtual List<Despatch> Despatches { get; set; }
+        public virtual List<Post> Posts { get; set; }
     }
 }

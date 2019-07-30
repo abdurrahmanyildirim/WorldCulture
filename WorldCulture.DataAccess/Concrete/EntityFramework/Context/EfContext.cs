@@ -12,13 +12,12 @@ namespace WorldCulture.DataAccess.Concrete.EntityFramework.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("server=. ; database=WorldCultureDb ; uid=sa ; pwd=123");
-           
         }
 
         public DbSet<Account> Accounts { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Country> Countries { get; set; }
-        public DbSet<Despatch> Despatches { get; set; }
+        public DbSet<Post> Posts { get; set; }
         public DbSet<FamousPlace> FamousPlaces { get; set; }
         public DbSet<Relation> Relations { get; set; }
         public DbSet<Review> Reviews { get; set; }
@@ -29,13 +28,11 @@ namespace WorldCulture.DataAccess.Concrete.EntityFramework.Context
             modelBuilder.ApplyConfiguration(new AccountMap());
             modelBuilder.ApplyConfiguration(new CityMap());
             modelBuilder.ApplyConfiguration(new CountryMap());
-            modelBuilder.ApplyConfiguration(new DespatchMap());
+            modelBuilder.ApplyConfiguration(new PostMap());
             modelBuilder.ApplyConfiguration(new FamousPlaceMap());
             modelBuilder.ApplyConfiguration(new RelationMap());
             modelBuilder.ApplyConfiguration(new ReviewMap());
             modelBuilder.ApplyConfiguration(new RoleMap());
-
-            
 
             base.OnModelCreating(modelBuilder);
         }

@@ -8,7 +8,7 @@ using WorldCulture.Entities.Concrete;
 
 namespace WorldCulture.DataAccess.Concrete.EntityFramework
 {
-    public class EfDespatchDal : EfEntityRepository<EfContext, Despatch>,IDespatchDal
+    public class EfPostDal : EfEntityRepository<EfContext, Post>,IPostDal
     {
     }
 }

@@ -147,15 +147,15 @@ namespace WorldCulture.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Despatches",
+                name: "Posts",
                 columns: table => new
                 {
-                    DespatchID = table.Column<int>(nullable: false)
+                    PostID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     FamousPlaceID = table.Column<int>(nullable: false),
                     AccountID = table.Column<int>(nullable: false),
                     Title = table.Column<string>(maxLength: 30, nullable: false),
-                    DespatchPhotoPath = table.Column<string>(nullable: false),
+                    PostPhotoPath = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Rate = table.Column<byte>(nullable: false),
@@ -163,15 +163,15 @@ namespace WorldCulture.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Despatches", x => x.DespatchID);
+                    table.PrimaryKey("PK_Posts", x => x.PostID);
                     table.ForeignKey(
-                        name: "FK_Despatches_Accounts_AccountID",
+                        name: "FK_Posts_Accounts_AccountID",
                         column: x => x.AccountID,
                         principalTable: "Accounts",
                         principalColumn: "AccountID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Despatches_FamousPlaces_FamousPlaceID",
+                        name: "FK_Posts_FamousPlaces_FamousPlaceID",
                         column: x => x.FamousPlaceID,
                         principalTable: "FamousPlaces",
                         principalColumn: "FamousPlaceID",
@@ -184,7 +184,7 @@ namespace WorldCulture.DataAccess.Migrations
                 {
                     ReviewID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DespatchID = table.Column<int>(nullable: false),
+                    PostID = table.Column<int>(nullable: false),
                     Name = table.Column<string>(maxLength: 30, nullable: false),
                     ReviewContent = table.Column<string>(nullable: false),
                     Rate = table.Column<byte>(nullable: false),
@@ -194,10 +194,10 @@ namespace WorldCulture.DataAccess.Migrations
                 {
                     table.PrimaryKey("PK_Reviews", x => x.ReviewID);
                     table.ForeignKey(
-                        name: "FK_Reviews_Despatches_DespatchID",
-                        column: x => x.DespatchID,
-                        principalTable: "Despatches",
-                        principalColumn: "DespatchID",
+                        name: "FK_Reviews_Posts_PostID",
+                        column: x => x.PostID,
+                        principalTable: "Posts",
+                        principalColumn: "PostID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -212,19 +212,19 @@ namespace WorldCulture.DataAccess.Migrations
                 column: "CountryID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Despatches_AccountID",
-                table: "Despatches",
-                column: "AccountID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Despatches_FamousPlaceID",
-                table: "Despatches",
-                column: "FamousPlaceID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_FamousPlaces_CityID",
                 table: "FamousPlaces",
                 column: "CityID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Posts_AccountID",
+                table: "Posts",
+                column: "AccountID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Posts_FamousPlaceID",
+                table: "Posts",
+                column: "FamousPlaceID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Relations_FromAccountID",
@@ -237,9 +237,9 @@ namespace WorldCulture.DataAccess.Migrations
                 column: "ToAccountID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reviews_DespatchID",
+                name: "IX_Reviews_PostID",
                 table: "Reviews",
-                column: "DespatchID");
+                column: "PostID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -251,7 +251,7 @@ namespace WorldCulture.DataAccess.Migrations
                 name: "Reviews");
 
             migrationBuilder.DropTable(
-                name: "Despatches");
+                name: "Posts");
 
             migrationBuilder.DropTable(
                 name: "Accounts");

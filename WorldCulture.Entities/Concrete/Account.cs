@@ -8,7 +8,7 @@ namespace WorldCulture.Entities.Concrete
     {
         public Account()
         {
-            Despatches = new List<Despatch>();
+            Posts = new List<Post>();
             FromAccounts = new List<Relation>();
             ToAccounts = new List<Relation>();
         }
@@ -28,7 +28,7 @@ namespace WorldCulture.Entities.Concrete
         public bool IsActive { get; set; }
 
         public virtual Role Role { get; set; }
-        public virtual List<Despatch> Despatches { get; set; }
+        public virtual List<Post> Posts { get; set; }
         public virtual List<Relation> FromAccounts { get; set; }
         public virtual List<Relation> ToAccounts { get; set; }
     }

@@ -4,18 +4,18 @@ using System.Text;
 
 namespace WorldCulture.Entities.Concrete
 {
-    public class Despatch
+    public class Post
     {
-        public Despatch()
+        public Post()
         {
             Reviews = new List<Review>();
         }
 
-        public int DespatchID { get; set; }
+        public int PostID { get; set; }
         public int FamousPlaceID { get; set; }
         public int AccountID { get; set; }
         public string Title { get; set; }
-        public string DespatchPhotoPath { get; set; }
+        public string PostPhotoPath { get; set; }
         public string Description { get; set; }
         public DateTime CreatedDate { get; set; }
         public byte Rate { get; set; }
