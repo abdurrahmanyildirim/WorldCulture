@@ -7,3 +7,12 @@ C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Entities\ob
 C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Entities\obj\Debug\netcoreapp2.1\WorldCulture.Entities.AssemblyInfo.cs
 C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Entities\obj\Debug\netcoreapp2.1\WorldCulture.Entities.dll
 C:\Users\Abdurrahman\Desktop\World Culture\WorldCulture\WorldCulture.Entities\obj\Debug\netcoreapp2.1\WorldCulture.Entities.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Entities\bin\Debug\netcoreapp2.1\WorldCulture.Entities.deps.json
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Entities\bin\Debug\netcoreapp2.1\WorldCulture.Entities.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Entities\bin\Debug\netcoreapp2.1\WorldCulture.Entities.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Entities\obj\Debug\netcoreapp2.1\WorldCulture.Entities.csprojAssemblyReference.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Entities\obj\Debug\netcoreapp2.1\WorldCulture.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Entities\obj\Debug\netcoreapp2.1\WorldCulture.Entities.AssemblyInfoInputs.cache
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Entities\obj\Debug\netcoreapp2.1\WorldCulture.Entities.AssemblyInfo.cs
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Entities\obj\Debug\netcoreapp2.1\WorldCulture.Entities.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Entities\obj\Debug\netcoreapp2.1\WorldCulture.Entities.pdb

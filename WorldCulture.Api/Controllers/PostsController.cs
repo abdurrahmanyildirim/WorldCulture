@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WorldCulture.Api.Dtos;
@@ -11,6 +12,7 @@ using WorldCulture.Business.Abstract;
 namespace WorldCulture.Api.Controllers
 {
     [ApiController]
+    [AllowAnonymous]
     public class PostsController : ControllerBase
     {
         private readonly IPostService _postService;

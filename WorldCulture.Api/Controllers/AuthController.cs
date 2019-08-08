@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -15,17 +16,17 @@ using WorldCulture.Entities.Concrete;
 
 namespace WorldCulture.Api.Controllers
 {
+    [AllowAnonymous]
     public class AuthController : Controller
     {
         private readonly IAccountService _accountService;
         private readonly IConfiguration _configuration;
-        private readonly IRoleService _roleService;
 
-        public AuthController(IAccountService accountService, IConfiguration configuration, IRoleService roleService)
+        public AuthController(IAccountService accountService,
+            IConfiguration configuration)
         {
             _accountService = accountService;
             _configuration = configuration;
-            _roleService = roleService;
         }
 
         [HttpPost]

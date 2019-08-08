@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCulture\\WorldCulture.Core\\WorldCulture.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCultureBackEnd\\WorldCulture.Core\\WorldCulture.Core.csproj",
       "projectName": "WorldCulture.Core",
-      "projectPath": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCulture\\WorldCulture.Core\\WorldCulture.Core.csproj",
+      "projectPath": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCultureBackEnd\\WorldCulture.Core\\WorldCulture.Core.csproj",
       "packagesPath": "C:\\Users\\Abdurrahman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCulture\\WorldCulture.Core\\obj\\",
+      "outputPath": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCultureBackEnd\\WorldCulture.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

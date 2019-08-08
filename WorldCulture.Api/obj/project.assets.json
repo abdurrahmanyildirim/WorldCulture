@@ -12668,11 +12668,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCulture\\WorldCulture.Api\\WorldCulture.Api.csproj",
+      "projectUniqueName": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCultureBackEnd\\WorldCulture.Api\\WorldCulture.Api.csproj",
       "projectName": "WorldCulture.Api",
-      "projectPath": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCulture\\WorldCulture.Api\\WorldCulture.Api.csproj",
+      "projectPath": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCultureBackEnd\\WorldCulture.Api\\WorldCulture.Api.csproj",
       "packagesPath": "C:\\Users\\Abdurrahman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCulture\\WorldCulture.Api\\obj\\",
+      "outputPath": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCultureBackEnd\\WorldCulture.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12691,14 +12691,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCulture\\WorldCulture.Business\\WorldCulture.Business.csproj": {
-              "projectPath": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCulture\\WorldCulture.Business\\WorldCulture.Business.csproj"
+            "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCultureBackEnd\\WorldCulture.Business\\WorldCulture.Business.csproj": {
+              "projectPath": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCultureBackEnd\\WorldCulture.Business\\WorldCulture.Business.csproj"
             },
-            "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCulture\\WorldCulture.Core\\WorldCulture.Core.csproj": {
-              "projectPath": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCulture\\WorldCulture.Core\\WorldCulture.Core.csproj"
+            "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCultureBackEnd\\WorldCulture.Core\\WorldCulture.Core.csproj": {
+              "projectPath": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCultureBackEnd\\WorldCulture.Core\\WorldCulture.Core.csproj"
             },
-            "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCulture\\WorldCulture.DataAccess\\WorldCulture.DataAccess.csproj": {
-              "projectPath": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCulture\\WorldCulture.DataAccess\\WorldCulture.DataAccess.csproj"
+            "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCultureBackEnd\\WorldCulture.DataAccess\\WorldCulture.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Abdurrahman\\Desktop\\World Culture\\WorldCultureBackEnd\\WorldCulture.DataAccess\\WorldCulture.DataAccess.csproj"
             }
           }
         }

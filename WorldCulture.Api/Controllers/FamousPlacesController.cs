@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WorldCulture.Business.Abstract;
@@ -9,6 +10,7 @@ using WorldCulture.Business.Abstract;
 namespace WorldCulture.Api.Controllers
 {
     [ApiController]
+    [AllowAnonymous]
     public class FamousPlacesController : ControllerBase
     {
         private readonly IFamousPlaceService _famousPlaceService;
