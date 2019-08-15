@@ -17,16 +17,20 @@ using WorldCulture.Entities.Concrete;
 namespace WorldCulture.Api.Controllers
 {
     [AllowAnonymous]
+    [Produces("application/json")]
     public class AuthController : Controller
     {
         private readonly IAccountService _accountService;
         private readonly IConfiguration _configuration;
+        private readonly IRoleService _roleService;
 
         public AuthController(IAccountService accountService,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            IRoleService roleService)
         {
             _accountService = accountService;
             _configuration = configuration;
+            _roleService = roleService;
         }
 
         [HttpPost]
@@ -40,7 +44,7 @@ namespace WorldCulture.Api.Controllers
                 return Unauthorized();
             }
 
-            string role = _accountService.GetRoleByAccountID(account.AccountID);
+            string role = _roleService.GetRole(account.RoleID);
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration.GetSection("AppSettings:Token").Value);
 

@@ -2,5 +2,6 @@
 {
     public interface IRoleService
     {
+        string GetRole(int roleId);
     }
 }

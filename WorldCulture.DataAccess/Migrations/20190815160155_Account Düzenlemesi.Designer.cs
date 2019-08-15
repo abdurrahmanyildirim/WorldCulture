@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WorldCulture.DataAccess.Concrete.EntityFramework.Context;
 
 namespace WorldCulture.DataAccess.Migrations
 {
     [DbContext(typeof(EfContext))]
-    partial class EfContextModelSnapshot : ModelSnapshot
+    [Migration("20190815160155_Account Düzenlemesi")]
+    partial class AccountDüzenlemesi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,16 +32,19 @@ namespace WorldCulture.DataAccess.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
+                        .HasColumnType("nvarchar")
                         .HasMaxLength(60);
 
                     b.Property<string>("FirstName")
                         .IsRequired()
+                        .HasColumnType("nvarchar")
                         .HasMaxLength(50);
 
                     b.Property<bool>("IsActive");
 
                     b.Property<string>("LastName")
                         .IsRequired()
+                        .HasColumnType("nvarchar")
                         .HasMaxLength(50);
 
                     b.Property<DateTime>("MemberDate")
@@ -50,6 +55,8 @@ namespace WorldCulture.DataAccess.Migrations
                     b.Property<byte[]>("PasswordSalt");
 
                     b.Property<string>("PersonelInfo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar")
                         .HasMaxLength(120);
 
                     b.Property<string>("ProfilePhotoPath");
@@ -58,6 +65,7 @@ namespace WorldCulture.DataAccess.Migrations
 
                     b.Property<string>("UserName")
                         .IsRequired()
+                        .HasColumnType("nvarchar")
                         .HasMaxLength(50);
 
                     b.HasKey("AccountID");

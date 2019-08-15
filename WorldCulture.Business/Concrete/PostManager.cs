@@ -26,5 +26,10 @@ namespace WorldCulture.Business.Concrete
         {
             return _postDal.Get(x => x.PostID == postId);
         }
+
+        public void Add(Post post)
+        {
+            _postDal.Add(post);
+        }
     }
 }
