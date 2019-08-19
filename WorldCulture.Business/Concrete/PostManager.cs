@@ -31,5 +31,10 @@ namespace WorldCulture.Business.Concrete
         {
             _postDal.Add(post);
         }
+
+        public List<Post> GetPostsByAccountID(int accountId)
+        {
+            return _postDal.GetAll(x => x.AccountID == accountId);
+        }
     }
 }

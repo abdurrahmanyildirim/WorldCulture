@@ -16,9 +16,9 @@ namespace WorldCulture.Business.Concrete
             _accountDal = accountDal;
         }
 
-        public string GetRoleByAccountID(int accountId)
+        public Account GetAccountByID(int accountId)
         {
-            return _accountDal.Get(x => x.AccountID == accountId).Role.RoleName;
+            return _accountDal.Get(x => x.AccountID == accountId);
         }
 
         public bool ChangePassword(Account account, string password)

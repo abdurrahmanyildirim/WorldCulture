@@ -63,7 +63,7 @@ namespace WorldCulture.Api.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
-
+            
             return Ok(tokenString);
         }
 

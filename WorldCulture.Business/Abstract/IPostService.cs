@@ -8,5 +8,6 @@ namespace WorldCulture.Business.Abstract
         List<Post> GetPostsByPlaceId(int placeId);
         Post GetPostById(int postId);
         void Add(Post post);
+        List<Post> GetPostsByAccountID(int accountId);
     }
 }

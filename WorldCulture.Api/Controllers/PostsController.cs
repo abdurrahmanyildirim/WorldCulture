@@ -41,6 +41,14 @@ namespace WorldCulture.Api.Controllers
             return Ok(posts);
         }
 
+        [HttpGet]
+        [Route("api/postsByAccount/{id}")]
+        public IActionResult GetPostsByAccountID(int id)
+        {
+            var posts = _mapper.Map<List<PostForCardDto>>(_postService.GetPostsByAccountID(id));
+            return Ok(posts);
+        }
+
         [HttpPost]
         [Route("api/post/add")]
         public IActionResult CreatePost([FromBody]Post post)

@@ -15,6 +15,7 @@ namespace WorldCulture.Api.Helpers
             CreateMap<Country, CountryForCardDto>();
             CreateMap<City, CityForCardDto>();
             CreateMap<Post, PostForCardDto>();
+            CreateMap<Account, AccountForProfileDto>();
         }
     }
 }
