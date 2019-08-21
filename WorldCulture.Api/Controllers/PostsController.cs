@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -18,11 +19,18 @@ namespace WorldCulture.Api.Controllers
     {
         private readonly IPostService _postService;
         private readonly IMapper _mapper;
+        private readonly IRelationService _relationService;
+        private readonly IReviewService _reviewService;
 
-        public PostsController(IPostService postService, IMapper mapper)
+        public PostsController(IPostService postService,
+            IMapper mapper,
+            IRelationService relationService,
+            IReviewService reviewService)
         {
             _postService = postService;
             _mapper = mapper;
+            _relationService = relationService;
+            _reviewService = reviewService;
         }
 
         [HttpGet]
@@ -50,6 +58,41 @@ namespace WorldCulture.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize]
+        [Route("api/addReview")]
+        public IActionResult AddReview([FromBody]Review review)
+        {
+            _reviewService.Add(review);
+            return Ok(_reviewService.GetReviewsByPost(review.PostID));
+        }
+
+        [HttpGet]
+        [Route("api/reviews/{id}")]
+        public IActionResult GetReviews(int id)
+        {
+            return Ok(_reviewService.GetReviewsByPost(id));
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("api/followingAccountPosts")]
+        public IActionResult GetPostsByFollowingAccounts()
+        {
+            try
+            {
+                var currentAccountId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+                List<int> followingAccountsId = _relationService.GetFollowingAccountsId(currentAccountId);
+                List<PostForCardDto> posts = _mapper.Map<List<PostForCardDto>>(_postService.GetPostsByFollowingAccounts(followingAccountsId));
+                return Ok(posts);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);             
+            }
+        }
+
+        [HttpPost]
+        [Authorize]
         [Route("api/post/add")]
         public IActionResult CreatePost([FromBody]Post post)
         {
@@ -63,7 +106,6 @@ namespace WorldCulture.Api.Controllers
                 Post addedPost = new Post
                 {
                     AccountID = post.AccountID,
-                    CreatedDate = DateTime.Now,
                     CountOfView = "0",
                     Description = post.Description,
                     FamousPlaceID = post.FamousPlaceID,
@@ -79,7 +121,6 @@ namespace WorldCulture.Api.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
         }
     }
 }

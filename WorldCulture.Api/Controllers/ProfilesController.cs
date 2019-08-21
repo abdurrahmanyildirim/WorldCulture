@@ -14,7 +14,6 @@ using WorldCulture.Entities.Concrete;
 namespace WorldCulture.Api.Controllers
 {
     [ApiController]
-    [AllowAnonymous]
     [Produces("application/json")]
     public class ProfilesController : ControllerBase
     {
@@ -32,6 +31,7 @@ namespace WorldCulture.Api.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         [Route("api/profile/{id}")]
         public IActionResult GetProfileData(int id)
         {
@@ -40,6 +40,7 @@ namespace WorldCulture.Api.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,Client")]
         [Route("api/isFollower/{id}")]
         public IActionResult GetRelationStatus(int id)
         {
@@ -48,6 +49,7 @@ namespace WorldCulture.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("api/changeToRelationStatus/{id}")]
         public IActionResult ChangeToRelationStatus(int id)
         {
@@ -64,7 +66,6 @@ namespace WorldCulture.Api.Controllers
                 {
                     _relationService.Add(new Relation
                     {
-                        Date = DateTime.Now,
                         FromAccountID = id,
                         ToAccountID = currentAccountId
                     });

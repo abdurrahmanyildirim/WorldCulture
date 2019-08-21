@@ -1,4 +1,5 @@
-﻿using WorldCulture.Entities.Concrete;
+﻿using System.Collections.Generic;
+using WorldCulture.Entities.Concrete;
 
 namespace WorldCulture.Business.Abstract
 {
@@ -8,5 +9,6 @@ namespace WorldCulture.Business.Abstract
         Relation GetRelation(int fromId, int toId);
         void Delete(Relation relation);
         void Add(Relation relation);
+        List<int> GetFollowingAccountsId(int accountId);
     }
 }

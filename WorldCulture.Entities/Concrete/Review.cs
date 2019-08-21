@@ -6,6 +6,11 @@ namespace WorldCulture.Entities.Concrete
 {
     public class Review
     {
+        public Review()
+        {
+            ReviewDate = DateTime.Now;
+        }
+
         public int ReviewID { get; set; }
         public int PostID { get; set; }
         public string Name { get; set; }

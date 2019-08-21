@@ -9,6 +9,7 @@ namespace WorldCulture.Entities.Concrete
         public Post()
         {
             Reviews = new List<Review>();
+            CreatedDate = DateTime.Now;
         }
 
         public int PostID { get; set; }

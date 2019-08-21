@@ -11,6 +11,7 @@ namespace WorldCulture.Entities.Concrete
             Posts = new List<Post>();
             FromAccounts = new List<Relation>();
             ToAccounts = new List<Relation>();
+            MemberDate = DateTime.Now;
         }
 
         public int AccountID { get; set; }

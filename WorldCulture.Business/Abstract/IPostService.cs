@@ -9,5 +9,6 @@ namespace WorldCulture.Business.Abstract
         Post GetPostById(int postId);
         void Add(Post post);
         List<Post> GetPostsByAccountID(int accountId);
+        List<Post> GetPostsByFollowingAccounts(List<int> accountsId);
     }
 }

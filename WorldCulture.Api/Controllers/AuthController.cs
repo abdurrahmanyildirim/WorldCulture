@@ -87,7 +87,6 @@ namespace WorldCulture.Api.Controllers
                 IsActive = true,
                 LastName = userForRegisterDto.LastName,
                 FirstName = userForRegisterDto.FirstName,
-                MemberDate = DateTime.Now,
                 Email = userForRegisterDto.Email,
                 BirthDate = userForRegisterDto.BirthDate,
                 UserName = userForRegisterDto.Email

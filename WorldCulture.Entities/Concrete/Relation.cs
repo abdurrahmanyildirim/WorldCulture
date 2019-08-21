@@ -7,6 +7,10 @@ namespace WorldCulture.Entities.Concrete
 {
     public class Relation
     {
+        public Relation()
+        {
+            Date = DateTime.Now;
+        }
         public int RelationID { get; set; }
         public int FromAccountID { get; set; }
         public int? ToAccountID { get; set; }

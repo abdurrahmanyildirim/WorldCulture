@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using WorldCulture.Business.Abstract;
 using WorldCulture.DataAccess.Abstract;
@@ -14,6 +15,18 @@ namespace WorldCulture.Business.Concrete
         public RelationManager(IRelationDal relationDal)
         {
             _relationDal = relationDal;
+        }
+
+        public List<int> GetFollowingAccountsId(int accountId)
+        {
+            List<int> accountsId = new List<int>();
+            List<Relation> followingAccounts= _relationDal.GetAll(x => x.FromAccountID == accountId);
+
+            foreach (var item in followingAccounts)
+            {
+                accountsId.Add((int)item.ToAccountID);
+            }
+            return accountsId;
         }
 
         public bool isFollower(int currentAccountId,int otherAccountId)

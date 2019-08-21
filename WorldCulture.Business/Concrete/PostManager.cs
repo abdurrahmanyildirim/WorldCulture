@@ -17,6 +17,18 @@ namespace WorldCulture.Business.Concrete
             _postDal = postDal;
         }
 
+        public List<Post> GetPostsByFollowingAccounts(List<int> accountsId)
+        {
+            List<Post> posts = new List<Post>();
+
+            foreach (var item in accountsId)
+            {
+                posts.Add(_postDal.Get(x => x.AccountID == item));
+            }
+
+            return posts;
+        }
+
         public List<Post> GetPostsByPlaceId(int placeId)
         {
             return _postDal.GetAll(x => x.FamousPlaceID == placeId);
