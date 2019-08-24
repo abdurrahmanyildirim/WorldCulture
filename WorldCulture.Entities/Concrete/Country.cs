@@ -22,6 +22,7 @@ namespace WorldCulture.Entities.Concrete
         public string EthnicIdentity { get; set; }
         public string Language { get; set; }
         public DateTime FoundedDate { get; set; }
+        public string PublicId { get; set; }
 
         public virtual List<City> Cities { get; set; }
     }

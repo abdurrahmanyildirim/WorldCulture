@@ -17,6 +17,11 @@ namespace WorldCulture.Business.Concrete
             _postDal = postDal;
         }
 
+        public void Update(Post post)
+        {
+            _postDal.Update(post);
+        }
+
         public List<Post> GetPostsByFollowingAccounts(List<int> accountsId)
         {
             List<Post> posts = new List<Post>();

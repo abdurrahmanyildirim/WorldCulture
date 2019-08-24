@@ -48,15 +48,15 @@ namespace WorldCulture.Api.Controllers
             return Ok(_relationService.isFollower(currentAccountId, id));
         }
 
-        [HttpPost]
-        [Authorize]
+        [HttpGet]
+        [Authorize(Roles = "Admin,Client")]
         [Route("api/changeToRelationStatus/{id}")]
         public IActionResult ChangeToRelationStatus(int id)
         {
             try
             {
                 var currentAccountId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-                Relation relation = _relationService.GetRelation(id, currentAccountId);
+                Relation relation = _relationService.GetRelation(currentAccountId, id);
                 if (relation != null)
                 {
                     _relationService.Delete(relation);
@@ -66,8 +66,8 @@ namespace WorldCulture.Api.Controllers
                 {
                     _relationService.Add(new Relation
                     {
-                        FromAccountID = id,
-                        ToAccountID = currentAccountId
+                        FromAccountID = currentAccountId,
+                        ToAccountID = id
                     });
                     return Ok();
                 }

@@ -4,40 +4,58 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using WorldCulture.Api.Dtos;
+using WorldCulture.Api.Helpers;
 using WorldCulture.Business.Abstract;
 using WorldCulture.Entities.Concrete;
 
 namespace WorldCulture.Api.Controllers
 {
     [ApiController]
-    [AllowAnonymous]
     public class PostsController : ControllerBase
     {
         private readonly IPostService _postService;
         private readonly IMapper _mapper;
         private readonly IRelationService _relationService;
         private readonly IReviewService _reviewService;
+        private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
+        private readonly IFamousPlaceService _famousPlaceService;
+
+        private Cloudinary _cloudinary;
 
         public PostsController(IPostService postService,
             IMapper mapper,
             IRelationService relationService,
-            IReviewService reviewService)
+            IReviewService reviewService,
+            IOptions<CloudinarySettings> cloudinaryConfig,
+            IFamousPlaceService famousPlaceService)
         {
             _postService = postService;
             _mapper = mapper;
             _relationService = relationService;
             _reviewService = reviewService;
+            _cloudinaryConfig = cloudinaryConfig;
+            _famousPlaceService = famousPlaceService;
+
+            CloudinaryDotNet.Account account = new CloudinaryDotNet.Account(
+                _cloudinaryConfig.Value.CloudName,
+                _cloudinaryConfig.Value.ApiKey,
+                _cloudinaryConfig.Value.ApiSecret);
+
+            _cloudinary = new Cloudinary(account);
         }
 
         [HttpGet]
         [Route("api/posts/{id}")]
         public IActionResult GetPostsByPlaceID(int id)
         {
-            var posts = _mapper.Map<List<PostForCardDto>>(_postService.GetPostsByPlaceId(id));
+            var posts = _mapper.Map<List<PostForCardDto>>(_postService.GetPostsByPlaceId(id).OrderByDescending(x => x.CountOfView));
             return Ok(posts);
         }
 
@@ -45,8 +63,10 @@ namespace WorldCulture.Api.Controllers
         [Route("api/post/{id}")]
         public IActionResult GetPostByID(int id)
         {
-            var posts = _postService.GetPostById(id);
-            return Ok(posts);
+            var post = _postService.GetPostById(id);
+            post.CountOfView = (Convert.ToInt32(post.CountOfView) + 1).ToString();
+            _postService.Update(post);
+            return Ok(post);
         }
 
         [HttpGet]
@@ -63,14 +83,25 @@ namespace WorldCulture.Api.Controllers
         public IActionResult AddReview([FromBody]Review review)
         {
             _reviewService.Add(review);
-            return Ok(_reviewService.GetReviewsByPost(review.PostID));
+            List<Review> reviews = _reviewService.GetReviewsByPost(review.PostID);
+            Post post = _postService.GetPostById(review.PostID);
+            int rate = 0;
+            foreach (var item in reviews)
+            {
+                rate = rate + item.Rate;
+            }
+            rate += post.Rate;
+            rate = rate / (reviews.Count + 1);
+            post.Rate = Convert.ToByte(rate);
+            _postService.Update(post);
+            return Ok(reviews);
         }
 
         [HttpGet]
         [Route("api/reviews/{id}")]
         public IActionResult GetReviews(int id)
         {
-            return Ok(_reviewService.GetReviewsByPost(id));
+            return Ok(_reviewService.GetReviewsByPost(id).OrderByDescending(x => x.Rate));
         }
 
         [HttpGet]
@@ -87,40 +118,76 @@ namespace WorldCulture.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);             
+                return BadRequest(ex.Message);
             }
         }
 
         [HttpPost]
         [Authorize]
-        [Route("api/post/add")]
-        public IActionResult CreatePost([FromBody]Post post)
+        [Route("api/post/createPost")]
+        public IActionResult  CreatePost([FromBody]PostForCreationDto postForCreation)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
+                return BadRequest();
+            }
+
+            var currentId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            if (currentId != postForCreation.AccountID)
+            {
+                return Unauthorized();
+            }
+
+            Post post = _mapper.Map<Post>(postForCreation);
+            post.CountOfView = "1";
+            post.Rate = 0;
+
+            _postService.Add(post);
+
+            return Ok();
+        }
+
+        [HttpPost]
+        [Authorize]
+        [Route("api/post/uploadPhoto")]
+        public IActionResult UploadPhoto([FromForm]PhotoForCreationDto photo)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Hatalı işlem tespit edildi.");
+            }
+
+            if (int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value) ==0)
+            {
+                return Unauthorized();
+            }
+
+            var file = photo.File;
+
+            var uploadResult = new ImageUploadResult();
+
+            if (file.Length > 0)
+            {
+                using (var stream = file.OpenReadStream())
                 {
-                    return BadRequest("Hatalı işlem tespit edildi.");
+                    var uploadParams = new ImageUploadParams
+                    {
+                        File = new FileDescription(file.Name, stream)
+                    };
+
+                    uploadResult = _cloudinary.Upload(uploadParams);
                 }
-
-                Post addedPost = new Post
-                {
-                    AccountID = post.AccountID,
-                    CountOfView = "0",
-                    Description = post.Description,
-                    FamousPlaceID = post.FamousPlaceID,
-                    PostPhotoPath = post.PostPhotoPath,
-                    Rate = 0,
-                    Title = post.Title
-                };
-
-                _postService.Add(addedPost);
-                return Ok();
             }
-            catch (Exception ex)
+            var PostPhotoPath = uploadResult.Uri.ToString();
+            var PublicId = uploadResult.PublicId;
+
+            PhotoForReturnDto photoForReturn = new PhotoForReturnDto
             {
-                return BadRequest(ex.Message);
-            }
+                PostPhotoPath = uploadResult.Uri.ToString(),
+                PublicId = uploadResult.PublicId
+            };
+
+            return Ok(photoForReturn);
         }
     }
 }

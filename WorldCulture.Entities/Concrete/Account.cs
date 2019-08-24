@@ -27,6 +27,7 @@ namespace WorldCulture.Entities.Concrete
         public DateTime BirthDate { get; set; }
         public DateTime MemberDate { get; set; }
         public bool IsActive { get; set; }
+        public string PublicId { get; set; }
 
         public virtual Role Role { get; set; }
         public virtual List<Post> Posts { get; set; }

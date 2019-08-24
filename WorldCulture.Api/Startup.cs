@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using WorldCulture.Api.Helpers;
 using WorldCulture.Business.Abstract;
 using WorldCulture.Business.Concrete;
 using WorldCulture.DataAccess.Abstract;
@@ -41,6 +42,8 @@ namespace WorldCulture.Api
                 {
                     opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
+
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
 
             services.AddAutoMapper();
 
@@ -99,7 +102,7 @@ namespace WorldCulture.Api
             {
                 app.UseHsts();
             }
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseMvc();
