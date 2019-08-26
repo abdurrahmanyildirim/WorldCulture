@@ -37,5 +37,14 @@ namespace WorldCulture.Api.Controllers
         {
             return Ok(_countryService.GetCountryById(id));
         }
+
+        [HttpPost]
+        [Route("api/country/uploadPhoto")]
+        [Authorize(Roles ="Admin")]
+        public IActionResult UploadPhoto([FromForm]IFormFile file)
+        {
+            //Todo:Profil ayarları yapıldıktan sonra burası yapılacak.
+            return Ok();
+        }
     }
 }

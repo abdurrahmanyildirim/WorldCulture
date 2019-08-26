@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorldCulture.Api.Dtos
 {
-    public class PhotoForCreationDto
+    public class PhotoForUploadDto
     {
         public IFormFile File { get; set; }
     }

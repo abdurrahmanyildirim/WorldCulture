@@ -36,14 +36,14 @@ namespace WorldCulture.Api
         {
             var key = Encoding.ASCII.GetBytes(Configuration.GetSection("Appsettings:Token").Value);
 
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
+
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddJsonOptions(opt =>
                 {
                     opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
-
-            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
 
             services.AddAutoMapper();
 
@@ -89,6 +89,8 @@ namespace WorldCulture.Api
 
             services.AddSingleton<IRelationDal, EfRelationDal>();
             services.AddSingleton<IRelationService, RelationManager>();
+
+            services.AddScoped<ICloudinaryConfiguration, CloudinaryConfiguration>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
