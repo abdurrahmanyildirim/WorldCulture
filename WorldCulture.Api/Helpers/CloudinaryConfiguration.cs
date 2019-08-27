@@ -24,7 +24,7 @@ namespace WorldCulture.Api.Helpers
 
         }
 
-        public PhotoForReturnDto UploadImage(IFormFile file)
+        public CloudinaryForReturnDto UploadImage(IFormFile file)
         {
             var uploadResult = new ImageUploadResult();
 
@@ -41,9 +41,9 @@ namespace WorldCulture.Api.Helpers
                 }
             }
 
-            return new PhotoForReturnDto
+            return new CloudinaryForReturnDto
             {
-                PostPhotoPath = uploadResult.Uri.ToString(),
+                Url = uploadResult.Uri.ToString(),
                 PublicId = uploadResult.PublicId
             };
         }

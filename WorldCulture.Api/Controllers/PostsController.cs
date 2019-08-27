@@ -154,8 +154,12 @@ namespace WorldCulture.Api.Controllers
             }
 
             var file = photo.File;
-            PhotoForReturnDto photoForReturn = _cloudinaryConfiguration.UploadImage(file);
-            return Ok(photoForReturn);
+            CloudinaryForReturnDto cloudinaryForReturn = _cloudinaryConfiguration.UploadImage(file);
+            return Ok(new PhotoForReturnDto
+            {
+                PostPhotoPath = cloudinaryForReturn.Url,
+                PublicId = cloudinaryForReturn.PublicId
+            });
         }
     }
 }

@@ -5,6 +5,6 @@ namespace WorldCulture.Api.Helpers
 {
     public interface ICloudinaryConfiguration
     {
-        PhotoForReturnDto UploadImage(IFormFile file);
+        CloudinaryForReturnDto UploadImage(IFormFile file);
     }
 }

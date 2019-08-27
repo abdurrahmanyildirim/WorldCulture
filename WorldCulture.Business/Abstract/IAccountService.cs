@@ -12,5 +12,6 @@ namespace WorldCulture.Business.Abstract
         bool UserExists(string email);
         bool ChangePassword(Account account, string password);
         Account GetAccountByID(int accountId);
+        void Update(Account account);
     }
 }

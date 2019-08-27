@@ -21,6 +21,11 @@ namespace WorldCulture.Business.Concrete
             return _accountDal.Get(x => x.AccountID == accountId);
         }
 
+        public void Update(Account account)
+        {
+            _accountDal.Update(account);
+        }
+
         public bool ChangePassword(Account account, string password)
         {
             byte[] passwordHash, passwordSalt;
