@@ -37,6 +37,7 @@ namespace WorldCulture.Api
             var key = Encoding.ASCII.GetBytes(Configuration.GetSection("Appsettings:Token").Value);
 
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
+            services.Configure<DefaultProfilePhoto>(Configuration.GetSection("DefaultProfilePhoto"));
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)

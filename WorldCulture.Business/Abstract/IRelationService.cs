@@ -10,5 +10,8 @@ namespace WorldCulture.Business.Abstract
         void Delete(Relation relation);
         void Add(Relation relation);
         List<int> GetFollowingAccountsId(int accountId);
+        string GetFollowersCount(int accountId);
+        string GetFollowingsCount(int accountId);
+        List<int> GetFollowerAccountsId(int accountId);
     }
 }

@@ -17,6 +17,28 @@ namespace WorldCulture.Business.Concrete
             _relationDal = relationDal;
         }
 
+        public string GetFollowersCount(int accountId)
+        {
+            return _relationDal.GetAll(x => x.ToAccountID == accountId).Count.ToString();
+        }
+
+        public List<int> GetFollowerAccountsId(int accountId)
+        {
+            List<int> accountsId = new List<int>();
+            List<Relation> followerAccounts = _relationDal.GetAll(x => x.ToAccountID == accountId);
+
+            foreach (var item in followerAccounts)
+            {
+                accountsId.Add(item.FromAccountID);
+            }
+            return accountsId;
+        }
+
+        public string GetFollowingsCount(int accountId)
+        {
+            return _relationDal.GetAll(x => x.FromAccountID == accountId).Count.ToString();
+        }
+
         public List<int> GetFollowingAccountsId(int accountId)
         {
             List<int> accountsId = new List<int>();

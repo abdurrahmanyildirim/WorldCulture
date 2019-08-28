@@ -40,6 +40,8 @@ namespace WorldCulture.Api.Controllers
         public IActionResult GetProfileData(int id)
         {
             var account = _mapper.Map<AccountForProfileDto>(_accountService.GetAccountByID(id));
+            account.Followers = _relationService.GetFollowersCount(id);
+            account.Followings = _relationService.GetFollowingsCount(id);
             return Ok(account);
         }
 
@@ -123,7 +125,7 @@ namespace WorldCulture.Api.Controllers
                 return BadRequest("Gönderilen dosya hatalı");
             }
 
-            CloudinaryForReturnDto cloudinaryForReturn= _cloudinaryConfiguration.UploadImage(photo.File);
+            CloudinaryForReturnDto cloudinaryForReturn = _cloudinaryConfiguration.UploadImage(photo.File);
             int currentId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
             Account account = _accountService.GetAccountByID(currentId);
@@ -176,6 +178,42 @@ namespace WorldCulture.Api.Controllers
             _accountService.Update(account);
 
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("api/profile/followers/{id}")]
+        public IActionResult GetFollowers(int id)
+        {
+            List<Account> accounts = new List<Account>();
+
+            List<int> followersId = _relationService.GetFollowerAccountsId(id);
+
+            foreach (var item in followersId)
+            {
+                accounts.Add(_accountService.GetAccountByID(item));
+            }
+
+            List<AccountForProfileDto> followerAccounts = _mapper.Map<List<AccountForProfileDto>>(accounts);
+
+            return Ok(followerAccounts);
+        }
+
+        [HttpGet]
+        [Route("api/profile/followings/{id}")]
+        public IActionResult GetFollowings(int id)
+        {
+            List<Account> accounts = new List<Account>();
+
+            List<int> followingsId = _relationService.GetFollowingAccountsId(id);
+
+            foreach (var item in followingsId)
+            {
+                accounts.Add(_accountService.GetAccountByID(item));
+            }
+
+            List<AccountForProfileDto> followingAccounts = _mapper.Map<List<AccountForProfileDto>>(accounts);
+
+            return Ok(followingAccounts);
         }
     }
 }

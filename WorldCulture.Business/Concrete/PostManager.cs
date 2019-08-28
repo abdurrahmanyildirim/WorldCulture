@@ -28,7 +28,7 @@ namespace WorldCulture.Business.Concrete
 
             foreach (var item in accountsId)
             {
-                posts.Add(_postDal.Get(x => x.AccountID == item));
+                posts.AddRange(_postDal.GetAll(x => x.AccountID == item));
             }
 
             return posts;

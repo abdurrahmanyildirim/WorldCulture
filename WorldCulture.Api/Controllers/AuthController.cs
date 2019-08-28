@@ -9,8 +9,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using WorldCulture.Api.Dtos;
+using WorldCulture.Api.Helpers;
 using WorldCulture.Business.Abstract;
 using WorldCulture.Entities.Concrete;
 
@@ -23,14 +25,17 @@ namespace WorldCulture.Api.Controllers
         private readonly IAccountService _accountService;
         private readonly IConfiguration _configuration;
         private readonly IRoleService _roleService;
+        private readonly IOptions<DefaultProfilePhoto> _profilePhotoPath;
 
         public AuthController(IAccountService accountService,
             IConfiguration configuration,
-            IRoleService roleService)
+            IRoleService roleService,
+            IOptions<DefaultProfilePhoto> profilePhotoPath)
         {
             _accountService = accountService;
             _configuration = configuration;
             _roleService = roleService;
+            _profilePhotoPath = profilePhotoPath;
         }
 
         [HttpPost]
@@ -89,7 +94,8 @@ namespace WorldCulture.Api.Controllers
                 FirstName = userForRegisterDto.FirstName,
                 Email = userForRegisterDto.Email,
                 BirthDate = userForRegisterDto.BirthDate,
-                UserName = userForRegisterDto.Email
+                UserName = userForRegisterDto.Email,
+                ProfilePhotoPath = _profilePhotoPath.Value.ProfilePhotoPath
             };
 
             _accountService.Register(userToCreate, userForRegisterDto.Password);

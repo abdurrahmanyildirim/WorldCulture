@@ -13,5 +13,7 @@ namespace WorldCulture.Api.Dtos
         public string PersonelInfo { get; set; }
         public string ProfilePhotoPath { get; set; }
         public DateTime MemberDate { get; set; }
+        public string Followers { get; set; }
+        public string Followings { get; set; }
     }
 }
