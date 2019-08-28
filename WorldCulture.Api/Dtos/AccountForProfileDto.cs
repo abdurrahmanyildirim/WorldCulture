@@ -12,5 +12,6 @@ namespace WorldCulture.Api.Dtos
         public string LastName { get; set; }
         public string PersonelInfo { get; set; }
         public string ProfilePhotoPath { get; set; }
+        public DateTime MemberDate { get; set; }
     }
 }
