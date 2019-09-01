@@ -52,7 +52,15 @@ namespace WorldCulture.Api
             AddDepencies(services);
 
             services.AddCors();
+            //services.AddResponseCaching(opt =>
+            //{
+            //    opt.SizeLimit = 250;
+            //    opt.MaximumBodySize = 250;
+            //    opt.UseCaseSensitivePaths = false;
+            //});
 
+            services.AddMemoryCache();
+            
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
@@ -105,6 +113,8 @@ namespace WorldCulture.Api
             {
                 app.UseHsts();
             }
+
+            //app.UseResponseCaching();
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
             app.UseHttpsRedirection();
             app.UseAuthentication();
