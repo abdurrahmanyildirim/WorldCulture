@@ -41,7 +41,7 @@ namespace WorldCulture.Api.Controllers
         [Route("api/posts/{id}")]
         public IActionResult GetPostsByPlaceID(int id)
         {
-            var posts = _mapper.Map<List<PostForCardDto>>(_postService.GetPostsByPlaceId(id).OrderByDescending(x => x.CountOfView));
+            var posts = _mapper.Map<List<PostForCardDto>>(_postService.GetPostsByPlaceId(id).OrderByDescending(x => int.Parse(x.CountOfView)));
             return Ok(posts);
         }
 
@@ -160,6 +160,22 @@ namespace WorldCulture.Api.Controllers
                 PostPhotoPath = cloudinaryForReturn.Url,
                 PublicId = cloudinaryForReturn.PublicId
             });
+        }
+        //
+        [HttpGet]
+        [Route("api/post/most-view-posts")]
+        public IActionResult GetMostViewPosts()
+        {
+            var mostViewPosts = _mapper.Map<List<PostForCardDto>>(_postService.GetMostViewPosts());
+            return Ok(mostViewPosts);
+        }
+
+        [HttpGet]
+        [Route("api/post/random-posts")]
+        public IActionResult GetRandomPosts()
+        {
+            List<PostForCardDto> posts = _mapper.Map<List<PostForCardDto>>(_postService.GetRandomPosts());
+            return Ok(posts);
         }
     }
 }

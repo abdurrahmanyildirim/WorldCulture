@@ -16,6 +16,11 @@ namespace WorldCulture.Business.Concrete
             _accountDal = accountDal;
         }
 
+        public List<Account> GetHasMostFollowerAccounts()
+        {
+            return _accountDal.GetHasMostFollowerAccounts();
+        }
+
         public Account GetAccountByID(int accountId)
         {
             return _accountDal.Get(x => x.AccountID == accountId);

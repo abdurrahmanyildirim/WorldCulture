@@ -46,7 +46,7 @@ namespace WorldCulture.Api
                     opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
 
-            services.AddAutoMapper();
+            services.AddAutoMapper(opt => opt.AddProfile<AutoMapperProfiles>());
 
             //Dependencies
             AddDepencies(services);
@@ -60,7 +60,7 @@ namespace WorldCulture.Api
             //});
 
             services.AddMemoryCache();
-            
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters

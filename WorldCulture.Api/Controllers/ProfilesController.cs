@@ -215,5 +215,13 @@ namespace WorldCulture.Api.Controllers
 
             return Ok(followingAccounts);
         }
+        
+        [HttpGet]
+        [Route("api/profile/most-follower-accounts")]
+        public IActionResult GetMostFollowerAccounts()
+        {
+            List<AccountForProfileDto> accounts = _mapper.Map<List<AccountForProfileDto>>(_accountService.GetHasMostFollowerAccounts());
+            return Ok(accounts);
+        }
     }
 }

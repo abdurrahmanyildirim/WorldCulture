@@ -13,5 +13,6 @@ namespace WorldCulture.Business.Abstract
         bool ChangePassword(Account account, string password);
         Account GetAccountByID(int accountId);
         void Update(Account account);
+        List<Account> GetHasMostFollowerAccounts();
     }
 }

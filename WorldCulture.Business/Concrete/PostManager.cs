@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WorldCulture.Business.Abstract;
@@ -15,6 +16,16 @@ namespace WorldCulture.Business.Concrete
         public PostManager(IPostDal postDal)
         {
             _postDal = postDal;
+        }
+
+        public List<Post> GetRandomPosts()
+        {
+            return _postDal.GetAll().OrderBy(x => Guid.NewGuid()).Take(9).ToList();
+        }
+
+        public List<Post> GetMostViewPosts()
+        {
+            return _postDal.GetAll().OrderByDescending(x => int.Parse(x.CountOfView)).Take(9).ToList();
         }
 
         public void Update(Post post)

@@ -11,5 +11,7 @@ namespace WorldCulture.Business.Abstract
         void Update(Post post);
         List<Post> GetPostsByAccountID(int accountId);
         List<Post> GetPostsByFollowingAccounts(List<int> accountsId);
+        List<Post> GetMostViewPosts();
+        List<Post> GetRandomPosts();
     }
 }
