@@ -41,7 +41,7 @@ namespace WorldCulture.Api.Controllers
 
             _memoryCache.Set(key, countries, new MemoryCacheEntryOptions
             {
-                AbsoluteExpiration = DateTime.Now.AddMinutes(10),
+                AbsoluteExpiration = DateTime.Now.AddMinutes(30),
                 Priority = CacheItemPriority.Normal
             });
             return Ok(countries);

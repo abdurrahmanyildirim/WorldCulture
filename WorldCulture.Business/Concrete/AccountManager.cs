@@ -16,6 +16,11 @@ namespace WorldCulture.Business.Concrete
             _accountDal = accountDal;
         }
 
+        public List<Account> GetAccountsBySearchKey(string key)
+        {
+            return _accountDal.GetAll(x => x.FirstName.ToLower().Contains(key.ToLower()) || x.LastName.ToLower().Contains(key.ToLower()) || x.Email.ToLower().Contains(key.ToLower()) || key.ToLower().Contains(x.FirstName.ToLower()) || key.ToLower().Contains(x.LastName.ToLower()) || (key.ToLower().Contains(x.FirstName.ToLower()) && key.ToLower().Contains(x.LastName.ToLower())));
+        }
+
         public List<Account> GetHasMostFollowerAccounts()
         {
             return _accountDal.GetHasMostFollowerAccounts();

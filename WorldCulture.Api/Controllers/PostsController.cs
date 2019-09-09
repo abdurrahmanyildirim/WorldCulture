@@ -161,7 +161,7 @@ namespace WorldCulture.Api.Controllers
                 PublicId = cloudinaryForReturn.PublicId
             });
         }
-        //
+        
         [HttpGet]
         [Route("api/post/most-view-posts")]
         public IActionResult GetMostViewPosts()

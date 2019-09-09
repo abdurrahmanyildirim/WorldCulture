@@ -14,5 +14,6 @@ namespace WorldCulture.Business.Abstract
         Account GetAccountByID(int accountId);
         void Update(Account account);
         List<Account> GetHasMostFollowerAccounts();
+        List<Account> GetAccountsBySearchKey(string key);
     }
 }
