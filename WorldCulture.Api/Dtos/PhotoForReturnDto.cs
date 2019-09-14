@@ -7,7 +7,7 @@ namespace WorldCulture.Api.Dtos
 {
     public class PhotoForReturnDto
     {
-        public string PostPhotoPath { get; set; }
+        public string PhotoPath { get; set; }
         public string PublicId { get; set; }
     }
 }

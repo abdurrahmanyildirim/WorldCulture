@@ -157,7 +157,7 @@ namespace WorldCulture.Api.Controllers
             CloudinaryForReturnDto cloudinaryForReturn = _cloudinaryConfiguration.UploadImage(file);
             return Ok(new PhotoForReturnDto
             {
-                PostPhotoPath = cloudinaryForReturn.Url,
+                PhotoPath = cloudinaryForReturn.Url,
                 PublicId = cloudinaryForReturn.PublicId
             });
         }

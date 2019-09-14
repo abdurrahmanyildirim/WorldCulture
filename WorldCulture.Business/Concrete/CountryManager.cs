@@ -25,5 +25,10 @@ namespace WorldCulture.Business.Concrete
         {
             return _countryDal.Get(x=>x.CountryID==id);
         }
+
+        public void Add(Country country)
+        {
+            _countryDal.Add(country);
+        }
     }
 }

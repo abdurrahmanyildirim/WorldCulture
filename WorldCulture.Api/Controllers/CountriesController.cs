@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -8,7 +9,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using WorldCulture.Api.Dtos;
+using WorldCulture.Api.Helpers;
 using WorldCulture.Business.Abstract;
+using WorldCulture.Entities.Concrete;
 
 namespace WorldCulture.Api.Controllers
 {
@@ -19,13 +22,17 @@ namespace WorldCulture.Api.Controllers
         private readonly ICountryService _countryService;
         private IMapper _mapper;
         private IMemoryCache _memoryCache;
+        private readonly ICloudinaryConfiguration _cloudinaryConfiguration;
+
         public CountriesController(ICountryService countryService,
             IMapper mapper,
-            IMemoryCache memoryCache)
+            IMemoryCache memoryCache,
+            ICloudinaryConfiguration cloudinaryConfiguration)
         {
             _countryService = countryService;
             _mapper = mapper;
             _memoryCache = memoryCache;
+            _cloudinaryConfiguration = cloudinaryConfiguration;
         }
 
         [HttpGet]
@@ -55,12 +62,35 @@ namespace WorldCulture.Api.Controllers
         }
 
         [HttpPost]
-        [Route("api/country/uploadPhoto")]
+        [Route("api/country/upload-photo")]
         [Authorize(Roles = "Admin")]
-        public IActionResult UploadPhoto([FromForm]IFormFile file)
+        public IActionResult UploadPhoto([FromForm]PhotoForUploadDto photo)
         {
-            //Todo:Profil ayarları yapıldıktan sonra burası yapılacak.
-            return Ok();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Hatalı model gönderimi!");
+            }
+
+            var file = photo.File;
+            CloudinaryForReturnDto cloudinary = _cloudinaryConfiguration.UploadImage(file);
+            return Ok(new PhotoForReturnDto { PhotoPath = cloudinary.Url, PublicId = cloudinary.PublicId });
+        }
+
+        [HttpPost]
+        [Route("api/country/add-country")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult Add([FromBody]Country country)
+        {
+            try
+            {
+                _countryService.Add(country);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
     }
 }

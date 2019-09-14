@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WorldCulture.Api.Dtos;
+using WorldCulture.Api.Helpers;
 using WorldCulture.Business.Abstract;
 using WorldCulture.Entities.Concrete;
 
@@ -18,11 +19,15 @@ namespace WorldCulture.Api.Controllers
     {
         private readonly ICityService _cityService;
         private readonly IMapper _mapper;
+        private readonly ICloudinaryConfiguration _cloudinaryConfiguration;
 
-        public CitiesController(ICityService cityService, IMapper mapper)
+        public CitiesController(ICityService cityService,
+            IMapper mapper,
+            ICloudinaryConfiguration cloudinaryConfiguration)
         {
             _cityService = cityService;
             _mapper = mapper;
+            _cloudinaryConfiguration = cloudinaryConfiguration;
         }
 
         [HttpGet]
@@ -46,5 +51,38 @@ namespace WorldCulture.Api.Controllers
         {
             return Ok(_cityService.GetCityByID(id));
         }
+
+        [HttpPost]
+        [Route("api/city/upload-photo")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult UploadPhoto([FromForm]PhotoForUploadDto photo)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Hatalı model gönderimi!");
+            }
+
+            var file = photo.File;
+            CloudinaryForReturnDto cloudinary = _cloudinaryConfiguration.UploadImage(file);
+            return Ok(new PhotoForReturnDto { PhotoPath = cloudinary.Url, PublicId = cloudinary.PublicId });
+        }
+
+        [HttpPost]
+        [Route("api/city/add-city")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult Add([FromBody]City city)
+        {
+            try
+            {
+                _cityService.Add(city);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
     }
 }

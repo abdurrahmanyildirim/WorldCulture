@@ -46,7 +46,7 @@ namespace WorldCulture.Api.Controllers
 
             if (account == null)
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             string role = _roleService.GetRole(account.RoleID);
@@ -68,7 +68,7 @@ namespace WorldCulture.Api.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
-            
+
             return Ok(tokenString);
         }
 
@@ -78,7 +78,7 @@ namespace WorldCulture.Api.Controllers
         {
             if (_accountService.UserExists(userForRegisterDto.Email))
             {
-                ModelState.AddModelError("Email", "Bu mail adresi başka bir kişi tarafından kullanılmaktadır.");
+                return BadRequest("Bu mail adresi başka bir kişi tarafından kullanılmaktadır.");
             }
 
             if (!ModelState.IsValid)

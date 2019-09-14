@@ -7,5 +7,6 @@ namespace WorldCulture.Business.Abstract
     {
         List<Country> GetAllCountries();
         Country GetCountryById(int id);
+        void Add(Country country);
     }
 }

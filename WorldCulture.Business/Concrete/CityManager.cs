@@ -25,5 +25,10 @@ namespace WorldCulture.Business.Concrete
         {
             return _cityDal.Get(x => x.CityID == cityId);
         }
+
+        public void Add(City city)
+        {
+            _cityDal.Add(city);
+        }
     }
 }
