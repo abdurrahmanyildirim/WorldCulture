@@ -22,3 +22,5 @@ C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Core
 C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Core\obj\Debug\netcoreapp2.1\WorldCulture.Core.csproj.CopyComplete
 C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Core\obj\Debug\netcoreapp2.1\WorldCulture.Core.dll
 C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Core\obj\Debug\netcoreapp2.1\WorldCulture.Core.pdb
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Core\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Abdurrahman\Desktop\World Culture\WorldCultureBackEnd\WorldCulture.Core\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Caching.Abstractions.xml

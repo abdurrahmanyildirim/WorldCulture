@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WorldCulture.Api.Dtos;
+using WorldCulture.Api.Helpers;
 using WorldCulture.Business.Abstract;
+using WorldCulture.Entities.Concrete;
 
 namespace WorldCulture.Api.Controllers
 {
@@ -14,10 +17,13 @@ namespace WorldCulture.Api.Controllers
     public class FamousPlacesController : ControllerBase
     {
         private readonly IFamousPlaceService _famousPlaceService;
+        private readonly ICloudinaryConfiguration _cloudinaryConfiguration;
 
-        public FamousPlacesController(IFamousPlaceService famousPlaceService)
+        public FamousPlacesController(IFamousPlaceService famousPlaceService,
+            ICloudinaryConfiguration cloudinaryConfiguration)
         {
             _famousPlaceService = famousPlaceService;
+            _cloudinaryConfiguration = cloudinaryConfiguration;
         }
 
         [HttpGet]
@@ -38,6 +44,38 @@ namespace WorldCulture.Api.Controllers
                 return BadRequest();
 
             return Ok(_famousPlaceService.GetPlaceByID(id));
+        }
+
+        [HttpPost]
+        [Route("api/place/upload-photo")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult UploadPhoto([FromForm]PhotoForUploadDto photo)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Hatalı model gönderimi!");
+            }
+
+            var file = photo.File;
+            CloudinaryForReturnDto cloudinary = _cloudinaryConfiguration.UploadImage(file);
+            return Ok(new PhotoForReturnDto { PhotoPath = cloudinary.Url, PublicId = cloudinary.PublicId });
+        }
+
+        [HttpPost]
+        [Route("api/place/add-place")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult Add([FromBody]FamousPlace famousPlace)
+        {
+            try
+            {
+                _famousPlaceService.Add(famousPlace);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
     }
 }

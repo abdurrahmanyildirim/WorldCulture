@@ -7,5 +7,6 @@ namespace WorldCulture.Business.Abstract
     {
         List<FamousPlace> GetPlacesByCity(int cityId);
         FamousPlace GetPlaceByID(int placeId);
+        void Add(FamousPlace famousPlace);
     }
 }

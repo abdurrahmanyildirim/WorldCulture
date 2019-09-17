@@ -25,5 +25,10 @@ namespace WorldCulture.Business.Concrete
         {
             return _famousPlaceDal.Get(x => x.FamousPlaceID == placeId);
         }
+
+        public void Add(FamousPlace famousPlace)
+        {
+            _famousPlaceDal.Add(famousPlace);
+        }
     }
 }
