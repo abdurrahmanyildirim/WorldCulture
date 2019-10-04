@@ -47,5 +47,10 @@ namespace WorldCulture.Api.Helpers
                 PublicId = uploadResult.PublicId
             };
         }
+
+        public void DeleteImage(string publicId)
+        {
+            _cloudinary.DeleteResources(publicId);
+        }
     }
 }

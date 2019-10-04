@@ -46,7 +46,7 @@ namespace WorldCulture.Api.Controllers
 
             if (account == null)
             {
-                return BadRequest();
+                return BadRequest("Email veya şifre hatalı!");
             }
 
             string role = _roleService.GetRole(account.RoleID);

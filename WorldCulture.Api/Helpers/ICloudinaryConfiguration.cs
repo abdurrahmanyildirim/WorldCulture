@@ -6,5 +6,6 @@ namespace WorldCulture.Api.Helpers
     public interface ICloudinaryConfiguration
     {
         CloudinaryForReturnDto UploadImage(IFormFile file);
+        void DeleteImage(string publicId);
     }
 }

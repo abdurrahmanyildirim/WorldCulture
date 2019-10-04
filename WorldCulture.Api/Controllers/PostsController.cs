@@ -161,6 +161,21 @@ namespace WorldCulture.Api.Controllers
                 PublicId = cloudinaryForReturn.PublicId
             });
         }
+
+        [HttpDelete]
+        [Authorize]
+        [Route("api/post/delete-photo")]
+        public IActionResult DeletePhoto(string publicId)
+        {
+            if(publicId == null)
+            {
+                return BadRequest();
+            }
+
+            _cloudinaryConfiguration.DeleteImage(publicId);
+
+            return Ok();
+        }
         
         [HttpGet]
         [Route("api/post/most-view-posts")]
